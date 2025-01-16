@@ -1,0 +1,10 @@
+backoff
+aiohttp
+tqdm
+aiohttp
+loguru
+request
+pydantic
+pdfplumber
+python-docx
+pywin32
