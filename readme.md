@@ -24,9 +24,21 @@ gazette_downloader = GazetteDownloader(term="11", sessionPeriod=None, download_p
 gazette_downloader.run()
 ```
 
+### WordConverter
+
+模組用於將 `.doc` 文件轉換為 `.docx` 以及 `.pdf`。它使用 win32com 來進行文件格式的轉換。
+
+```python
+from src.word_converter import WordConverter
+
+dir_path = Path("./downloads/11")
+word_converter = WordConverter(dir_path=dir_path)
+word_converter.run()
+```
+
 ### TranscriptionParser
 
-模組用於解析會議記錄文件。它會讀取 `.docx` 文件，提取文本和頁碼，並將結果保存為 JSON 格式。
+模組用於解析會議記錄文件。它會讀取 `.docx` 文件，提取文本和頁碼（從pdf截取頁碼），並將結果保存為 JSON 格式。
 
 ```python
 from src.transcript_parser import TranscriptionParser
@@ -37,17 +49,6 @@ transcription_parser = TranscriptionParser(dir_path=dir_path, output_path=output
 transcription_parser.run()
 ```
 
-### WordConverter
-
-模組用於將 `.doc` 文件轉換為 `.docx`。它使用 win32com 來進行文件格式的轉換。
-
-```python
-from src.word_converter import WordConverter
-
-dir_path = Path("./downloads/11")
-word_converter = WordConverter(dir_path=dir_path)
-word_converter.run()
-```
 
 ## Contribution
 
